@@ -49,6 +49,9 @@ sharer();
 </script>
 </div>';
 
+file_put_contents($filename."_topbar.html", $_POST["topbar"]);
+file_put_contents($filename."_pageheader.html", $_POST["pageheader"]);
+
 $htmlcode .= '<div id="all-text" name="all-text" >';
 
 
@@ -136,6 +139,7 @@ print 'Header: <textarea name="pageheader" rows="6" cols="100">'.$pageheader.'</
 print '<hr>';
 
 
+$block = 0;
 $beginning = '<div id="all-text" name="all-text" >';
 
 if (strpos($oldhtml, $beginning) !== false) {
@@ -143,7 +147,6 @@ if (strpos($oldhtml, $beginning) !== false) {
 $oldtext = substr($oldhtml, strpos($oldhtml,$beginning)+strlen($beginning));
 
 
-$block = 0;
 $i = 0;
 while ( $i !== false) {
 
@@ -166,6 +169,7 @@ $block++;
 
 }
 
+}
 
 print addElement($block, $styles_list, "", "");
 
@@ -177,7 +181,6 @@ print "<a href=\"javascript:var element = document.getElementById('ELEMENT".$blo
 
 print '<input type="submit" value="Save"></form>';
 
-}
 
 
 
